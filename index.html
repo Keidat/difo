@@ -11,9 +11,7 @@
     --accent:#58a6ff;--accent2:#f78166;--accent3:#56d364;--text:#e6edf3;
     --text-muted:#8b949e;--correct:#1a4731;--correct-border:#56d364;
     --wrong:#4a1c1c;--wrong-border:#f85149;--yellow:#e3b341;
-    --hard:#c678dd;--hard-bg:rgba(198,120,221,0.12);--hard-border:rgba(198,120,221,0.35);
-    --expert:#f0b429;--expert-bg:rgba(240,180,41,0.12);--expert-border:rgba(240,180,41,0.4);
-  }
+    }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;}
   #start-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2rem;position:relative;overflow:hidden;}
@@ -26,17 +24,8 @@
   .info-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;text-align:center;}
   .info-card .num{font-size:1.8rem;font-weight:900;color:var(--accent);display:block;}
   .info-card .lbl{font-size:0.75rem;color:var(--text-muted);margin-top:0.2rem;}
-  .diff-select-label{font-size:0.85rem;color:var(--text-muted);margin-bottom:0.8rem;text-align:center;}
-  .diff-buttons{display:flex;gap:0.8rem;margin-bottom:2rem;width:100%;max-width:540px;flex-wrap:wrap;justify-content:center;}
-  .diff-btn{flex:1;min-width:140px;padding:0.85rem 0.8rem;border-radius:12px;border:2px solid var(--border);background:var(--card);color:var(--text-muted);font-family:'Noto Sans KR',sans-serif;font-size:0.92rem;font-weight:700;cursor:pointer;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:0.25rem;}
-  .diff-btn .diff-icon{font-size:1.4rem;}.diff-btn .diff-name{font-size:0.95rem;}.diff-btn .diff-desc{font-size:0.68rem;font-weight:400;opacity:0.7;}
-  .diff-btn.selected-normal{border-color:var(--accent);background:rgba(88,166,255,0.1);color:var(--accent);}
-  .diff-btn.selected-hard{border-color:var(--hard);background:var(--hard-bg);color:var(--hard);}
-  .diff-btn.selected-expert{border-color:var(--expert);background:var(--expert-bg);color:var(--expert);}
   .btn-start{background:linear-gradient(135deg,#58a6ff,#388bfd);color:#fff;border:none;padding:1rem 3rem;font-size:1.1rem;font-weight:700;font-family:'Noto Sans KR',sans-serif;border-radius:12px;cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;box-shadow:0 4px 24px rgba(88,166,255,0.3);}
   .btn-start:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(88,166,255,0.45);}
-  .btn-start.hard-mode{background:linear-gradient(135deg,#c678dd,#9b59b6);box-shadow:0 4px 24px rgba(198,120,221,0.3);}
-  .btn-start.expert-mode{background:linear-gradient(135deg,#f0b429,#d97706);box-shadow:0 4px 24px rgba(240,180,41,0.3);}
   #quiz-screen{display:none;max-width:720px;margin:0 auto;padding:2rem 1.5rem 5rem;}
   .quiz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;}
   .quiz-counter{font-size:0.85rem;color:var(--text-muted);font-weight:700;letter-spacing:0.05em;}
@@ -44,49 +33,16 @@
   .score-badge{background:rgba(86,211,100,0.15);border:1px solid rgba(86,211,100,0.3);color:var(--accent3);font-size:0.8rem;font-weight:700;padding:0.3rem 0.8rem;border-radius:100px;}
   .progress-bar-wrap{height:4px;background:var(--border);border-radius:99px;margin-bottom:2rem;overflow:hidden;}
   .progress-bar-fill{height:100%;background:linear-gradient(90deg,#58a6ff,#56d364);border-radius:99px;transition:width 0.4s ease;}
-  .progress-bar-fill.hard-fill{background:linear-gradient(90deg,#c678dd,#f78166);}
-  .progress-bar-fill.expert-fill{background:linear-gradient(90deg,#f0b429,#f85149);}
   .question-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;margin-bottom:1.4rem;position:relative;overflow:hidden;}
   .question-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#58a6ff,#388bfd);}
-  .question-card.hard-card::before{background:linear-gradient(90deg,#c678dd,#f78166);}
-  .question-card.expert-card::before{background:linear-gradient(90deg,#f0b429,#f85149);}
-  .question-type{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;}
+  .question-type{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.4rem;}
   .question-type::before{content:'';display:inline-block;width:6px;height:6px;background:var(--accent);border-radius:50%;}
-  .question-card.hard-card .question-type{color:var(--hard);}
-  .question-card.hard-card .question-type::before{background:var(--hard);}
-  .question-card.expert-card .question-type{color:var(--expert);}
-  .question-card.expert-card .question-type::before{background:var(--expert);}
-  .hard-badge-inline{background:var(--hard-bg);border:1px solid var(--hard-border);color:var(--hard);font-size:0.68rem;padding:0.1rem 0.5rem;border-radius:100px;font-weight:700;}
-  .expert-badge-inline{background:var(--expert-bg);border:1px solid var(--expert-border);color:var(--expert);font-size:0.68rem;padding:0.1rem 0.5rem;border-radius:100px;font-weight:700;}
-  .fmt-tag{background:rgba(88,166,255,0.12);border:1px solid rgba(88,166,255,0.25);color:var(--accent);font-size:0.68rem;padding:0.1rem 0.5rem;border-radius:100px;font-weight:700;}
-  .question-card.hard-card .fmt-tag{background:var(--hard-bg);border-color:var(--hard-border);color:var(--hard);}
-  .question-card.expert-card .fmt-tag{background:var(--expert-bg);border-color:var(--expert-border);color:var(--expert);}
   .question-text{font-size:1.05rem;font-weight:500;line-height:1.7;color:var(--text);margin-top:0.3rem;}
-  .hq-box{background:rgba(255,255,255,0.03);border:0.5px solid var(--border);border-radius:10px;padding:12px 14px;margin:10px 0;font-size:0.88rem;color:var(--text);line-height:1.8;}
-  .hq-box-title{font-size:0.72rem;font-weight:700;color:var(--text-muted);margin-bottom:6px;letter-spacing:0.05em;text-transform:uppercase;}
-  .hq-underline{display:inline;border-bottom:2px solid #f85149;color:var(--text);font-weight:600;}
-  .hq-arrow-flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0;font-size:0.85rem;}
-  .hq-flow-box{background:rgba(255,255,255,0.05);border:0.5px solid var(--border);border-radius:8px;padding:6px 12px;color:var(--text);white-space:nowrap;font-size:0.82rem;line-height:1.4;text-align:center;}
-  .hq-flow-blank{background:rgba(198,120,221,0.12);border:0.5px solid rgba(198,120,221,0.4);border-radius:8px;padding:6px 14px;color:var(--hard);font-weight:700;white-space:nowrap;font-size:0.82rem;}
-  .hq-flow-blank-expert{background:var(--expert-bg);border:0.5px solid var(--expert-border);border-radius:8px;padding:6px 14px;color:var(--expert);font-weight:700;white-space:nowrap;font-size:0.82rem;}
-  .hq-flow-arrow{color:var(--text-muted);font-size:1rem;}
-  .hq-two-col{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
-  .hq-col-card{background:rgba(255,255,255,0.03);border:0.5px solid var(--border);border-radius:8px;padding:10px 12px;font-size:0.82rem;color:var(--text);line-height:1.7;}
-  .hq-col-label{font-size:0.7rem;font-weight:700;color:var(--text-muted);margin-bottom:4px;}
-  .hq-table-wrap{overflow-x:auto;margin:10px 0;}
-  .hq-table{width:100%;border-collapse:collapse;font-size:0.82rem;}
-  .hq-table th{background:rgba(255,255,255,0.04);color:var(--text-muted);font-weight:600;padding:7px 10px;text-align:left;border-bottom:0.5px solid var(--border);}
-  .hq-table td{padding:7px 10px;border-bottom:0.5px solid rgba(255,255,255,0.05);color:var(--text);vertical-align:top;line-height:1.5;}
-  .hex-tag{font-family:monospace;background:rgba(88,166,255,0.1);border:1px solid rgba(88,166,255,0.2);color:#79c0ff;padding:2px 6px;border-radius:4px;font-size:0.82rem;letter-spacing:0.05em;}
   .choices{display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.4rem;}
   .choice-btn{background:var(--surface);border:1.5px solid var(--border);color:var(--text);padding:0.9rem 1.2rem;border-radius:10px;text-align:left;font-size:0.93rem;font-family:'Noto Sans KR',sans-serif;cursor:pointer;transition:all 0.15s;display:flex;align-items:flex-start;gap:0.8rem;line-height:1.5;}
   .choice-btn:hover:not(:disabled){border-color:var(--accent);background:rgba(88,166,255,0.08);transform:translateX(3px);}
-  .hard-mode-active .choice-btn:hover:not(:disabled){border-color:var(--hard);background:var(--hard-bg);}
-  .expert-mode-active .choice-btn:hover:not(:disabled){border-color:var(--expert);background:var(--expert-bg);}
   .choice-btn .choice-num{min-width:24px;height:24px;border-radius:6px;background:var(--border);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;flex-shrink:0;margin-top:1px;transition:all 0.15s;}
   .choice-btn:hover:not(:disabled) .choice-num{background:var(--accent);color:#fff;}
-  .hard-mode-active .choice-btn:hover:not(:disabled) .choice-num{background:var(--hard);color:#fff;}
-  .expert-mode-active .choice-btn:hover:not(:disabled) .choice-num{background:var(--expert);color:#000;}
   .choice-btn.correct{background:var(--correct);border-color:var(--correct-border);color:#fff;}
   .choice-btn.correct .choice-num{background:var(--correct-border);color:#fff;}
   .choice-btn.wrong{background:var(--wrong);border-color:var(--wrong-border);color:#fff;}
@@ -106,8 +62,6 @@
   .sa-hint.correct-hint{color:var(--accent3);font-weight:700;}
   .sa-hint.wrong-hint{color:var(--accent2);}
   .btn-next{width:100%;background:linear-gradient(135deg,#58a6ff,#388bfd);color:#fff;border:none;padding:1rem;border-radius:12px;font-size:1rem;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;transition:transform 0.15s,opacity 0.15s;display:none;}
-  .btn-next.hard-next{background:linear-gradient(135deg,#c678dd,#9b59b6);}
-  .btn-next.expert-next{background:linear-gradient(135deg,#f0b429,#d97706);color:#000;}
   .btn-next:hover{opacity:0.9;transform:translateY(-1px);}
   #result-screen{display:none;max-width:600px;margin:0 auto;padding:3rem 1.5rem;text-align:center;min-height:100vh;justify-content:center;flex-direction:column;align-items:center;}
   .result-emoji{font-size:5rem;margin-bottom:1rem;display:block;animation:bounce 0.5s ease;}
@@ -115,12 +69,7 @@
   .result-title{font-family:'Black Han Sans',sans-serif;font-size:2.2rem;margin-bottom:0.5rem;}
   .result-score{font-size:3.5rem;font-weight:900;margin:1rem 0;}
   .result-score .score-num{color:var(--accent);}
-  .result-score .score-num.hard-score{color:var(--hard);}
-  .result-score .score-num.expert-score{color:var(--expert);}
-  .result-diff-badge{display:inline-block;padding:0.3rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:700;margin-bottom:0.5rem;}
-  .result-diff-badge.normal{background:rgba(88,166,255,0.15);border:1px solid rgba(88,166,255,0.3);color:var(--accent);}
-  .result-diff-badge.hard{background:var(--hard-bg);border:1px solid var(--hard-border);color:var(--hard);}
-  .result-diff-badge.expert{background:var(--expert-bg);border:1px solid var(--expert-border);color:var(--expert);}
+  .result-diff-badge{display:inline-block;padding:0.3rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:700;margin-bottom:0.5rem;background:rgba(88,166,255,0.15);border:1px solid rgba(88,166,255,0.3);color:var(--accent);}
   .result-detail{color:var(--text-muted);margin-bottom:2rem;font-size:0.95rem;line-height:1.7;white-space:pre-line;}
   .result-bars{width:100%;max-width:400px;margin:0 auto 2rem;display:flex;flex-direction:column;gap:0.8rem;}
   .result-bar-row{display:flex;align-items:center;gap:0.8rem;font-size:0.85rem;}
@@ -132,9 +81,7 @@
   .result-buttons{display:flex;gap:0.7rem;width:100%;max-width:480px;flex-wrap:wrap;}
   .btn-r{flex:1;min-width:100px;border:none;padding:0.85rem 0.5rem;border-radius:12px;font-size:0.88rem;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;transition:opacity 0.15s;}
   .btn-r:hover{opacity:0.85;}
-  .btn-r.normal{background:linear-gradient(135deg,#58a6ff,#388bfd);color:#fff;}
-  .btn-r.hard-btn{background:linear-gradient(135deg,#c678dd,#9b59b6);color:#fff;}
-  .btn-r.expert-btn{background:linear-gradient(135deg,#f0b429,#d97706);color:#000;}
+  .btn-r.primary{background:linear-gradient(135deg,#58a6ff,#388bfd);color:#fff;}
   .btn-r.home{background:var(--card);color:var(--text);border:1.5px solid var(--border);}
   .btn-r.home:hover{border-color:var(--accent);}
   .topic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.7rem;width:100%;max-width:680px;margin-bottom:0.5rem;}
@@ -143,13 +90,10 @@
   .topic-btn .topic-name{font-size:0.88rem;font-weight:700;}
   .topic-btn .topic-desc{font-size:0.62rem;font-weight:400;opacity:0.7;text-align:center;}
   .topic-btn.selected-topic{border-color:#56d364;background:rgba(86,211,100,0.12);color:#56d364;}
-  .topic-badge{display:inline-flex;align-items:center;gap:0.3rem;background:rgba(86,211,100,0.12);border:1px solid rgba(86,211,100,0.3);color:#56d364;font-size:0.72rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:100px;margin-right:0.4rem;}
   @media(max-width:600px){
     .info-grid{grid-template-columns:repeat(3,1fr);gap:0.6rem;}
     .question-text{font-size:0.95rem;}
     .choice-btn{font-size:0.85rem;padding:0.75rem 0.9rem;}
-    .hq-two-col{grid-template-columns:1fr;}
-    .diff-buttons{flex-direction:column;}
     .topic-grid{grid-template-columns:repeat(2,1fr);}
   }
 </style>
@@ -158,9 +102,9 @@
 
 <div id="start-screen">
   <div class="start-badge">🔍 시험 대비 퀴즈</div>
-  <h1 class="start-title">디지털 포렌식<br>& 네트워크</h1>
+  <h1 class="start-title">디지털 포렌식<br>&amp; 네트워크</h1>
   <p class="start-sub">주제별 문제를 선택해 바로 시작하세요</p>
-  <p class="diff-select-label" style="margin-top:0.5rem">📚 단원 선택</p>
+  <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.8rem;text-align:center;">📚 단원 선택</p>
   <div class="topic-grid">
     <button class="topic-btn selected-topic" id="btn-topic-all" onclick="selectTopic('all')">
       <span class="topic-icon">📋</span><span class="topic-name">전체</span><span class="topic-desc">6개 단원 통합</span>
@@ -184,12 +128,12 @@
       <span class="topic-icon">🛡️</span><span class="topic-name">6단원</span><span class="topic-desc">네트워크 보안장비</span>
     </button>
   </div>
-  <div class="info-grid" style="max-width:360px;margin-bottom:1.5rem">
+  <div class="info-grid" style="max-width:360px;margin-top:1.5rem;margin-bottom:1.5rem">
     <div class="info-card"><span class="num" id="info-qcount">20</span><div class="lbl">문제 수</div></div>
     <div class="info-card"><span class="num" style="color:var(--yellow)">랜덤</span><div class="lbl">출제 방식</div></div>
     <div class="info-card"><span class="num" style="color:var(--accent3)">즉시</span><div class="lbl">해설 제공</div></div>
   </div>
-  <button class="btn-start" id="btn-start-main" onclick="startQuiz()">🚀 문제 시작하기 →</button>
+  <button class="btn-start" onclick="startQuiz()">🚀 문제 시작하기 →</button>
 </div>
 
 <div id="quiz-screen">
@@ -198,10 +142,9 @@
     <div class="score-badge">점수: <span id="live-score">0</span>점</div>
   </div>
   <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-fill" style="width:5%"></div></div>
-  <div class="question-card" id="q-card">
+  <div class="question-card">
     <div class="question-type" id="q-type">객관식</div>
     <div class="question-text" id="q-text"></div>
-    <div id="q-html-content"></div>
   </div>
   <div id="choices-area"></div>
   <div class="explanation" id="explanation"><span class="ex-label">💡 해설</span><span id="exp-text"></span></div>
@@ -210,7 +153,7 @@
 
 <div id="result-screen">
   <span class="result-emoji" id="result-emoji">🎉</span>
-  <div class="result-diff-badge normal" id="result-diff-badge">📖 노말 모드</div>
+  <div class="result-diff-badge">📖 퀴즈 결과</div>
   <h2 class="result-title" id="result-title">수고했어요!</h2>
   <div class="result-score"><span class="score-num" id="result-score-num">0</span><span style="font-size:1.5rem;color:var(--text-muted)" id="result-total-label"> / 20</span></div>
   <p class="result-detail" id="result-detail"></p>
@@ -227,43 +170,36 @@
     </div>
   </div>
   <div class="result-buttons">
-    <button class="btn-r normal" id="btn-restart" onclick="restartSameTopic()">🔄 다시 풀기</button>
+    <button class="btn-r primary" onclick="restartSameTopic()">🔄 다시 풀기</button>
     <button class="btn-r home" onclick="goHome()">🏠 단원 선택</button>
   </div>
 </div>
 
 <script>
-// ══ 유틸 ══
 function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-function pickMC(choices,answerIdx,noShuffle){
-  if(noShuffle)return{shuffledChoices:choices,newAnswerIdx:answerIdx};
-  if(choices.length<=4){
-    const correct=choices[answerIdx];
-    const wrong=shuffle(choices.filter((_,i)=>i!==answerIdx)).slice(0,3);
-    const pool=shuffle([correct,...wrong]);
-    return{shuffledChoices:pool,newAnswerIdx:pool.indexOf(correct)};
-  }
-  return{shuffledChoices:choices,newAnswerIdx:answerIdx};
+function pickMC(choices,answerIdx){
+  const correct=choices[answerIdx];
+  const wrong=shuffle(choices.filter((_,i)=>i!==answerIdx)).slice(0,3);
+  const pool=shuffle([correct,...wrong]);
+  return{shuffledChoices:pool,newAnswerIdx:pool.indexOf(correct)};
 }
 function checkSA(input,answers){
   const norm=s=>s.replace(/\s/g,'').toLowerCase();
   return answers.some(a=>norm(a)===norm(input));
 }
-const LABELS4=['①','②','③','④'];
-const LABELS5=['①','②','③','④','⑤'];
+const LABELS=['①','②','③','④'];
 
-// ══ 노말 문제 ══
-const NORMAL_QUESTIONS = [
+const QUESTIONS = [
 // ── 1단원: 파일 시그니처 ──
-{topic:'sig',type:'mc',q:'PNG 파일의 파일 시그니처(매직 넘버)로 올바른 것은?',choices:['89 50 4E 47','FF D8 FF E0','25 50 44 46','66 74 79 70'],answer:0,exp:'PNG 파일의 시그니처는 89 50 4E 47입니다. 16진수로 시작 4바이트를 확인하면 파일 형식을 알 수 있습니다.'},
+{topic:'sig',type:'mc',q:'PNG 파일의 파일 시그니처(매직 넘버)로 올바른 것은?',choices:['89 50 4E 47','FF D8 FF E0','25 50 44 46','66 74 79 70'],answer:0,exp:'PNG 파일의 시그니처는 89 50 4E 47입니다. 파일 헤더의 첫 4바이트를 확인하면 파일 형식을 알 수 있습니다.'},
 {topic:'sig',type:'mc',q:'JPEG 파일의 파일 시그니처로 올바른 것은?',choices:['FF D8 FF E0 또는 FF D8 FF E1','89 50 4E 47','25 50 44 46','33 67 70 35'],answer:0,exp:'JPEG 파일의 시그니처는 FF D8 FF E0 또는 FF D8 FF E1로 시작합니다. 두 가지 모두 JPEG 파일에 해당합니다.'},
-{topic:'sig',type:'mc',q:'PDF 파일의 파일 시그니처를 ASCII로 표현하면?',choices:['%PDF','JPEG','\\x89PNG','ftyp'],answer:0,exp:'PDF 시그니처 25 50 44 46은 ASCII로 %PDF를 의미합니다. 16진수 25=%이고 50=P, 44=D, 46=F입니다.'},
-{topic:'sig',type:'mc',q:'MP4 파일의 시그니처를 16진수로 올바르게 나타낸 것은?',choices:['33 67 70 35','FF D8 FF E0','89 50 4E 47','25 50 44 46'],answer:0,exp:'MP4 시그니처는 33 67 70 35입니다.'},
+{topic:'sig',type:'mc',q:'PDF 파일의 파일 시그니처를 ASCII로 표현하면?',choices:['%PDF','JPEG','\\x89PNG','ftyp'],answer:0,exp:'PDF 시그니처 25 50 44 46은 ASCII로 %PDF를 의미합니다. 16진수 25=%, 50=P, 44=D, 46=F입니다.'},
+{topic:'sig',type:'mc',q:'MP4 파일의 파일 시그니처를 식별하는 키워드(ASCII)로 올바른 것은?',choices:['ftyp','%PDF','\\x89PNG','JFIF'],answer:0,exp:'MP4 파일은 ftyp 박스로 식별합니다. 파일 앞부분에 ASCII로 "ftyp" 문자열이 포함되어 있습니다.'},
 {topic:'sig',type:'mc',q:'파일 시그니처(파일 매직 넘버)의 역할로 가장 올바른 것은?',choices:['파일의 실제 형식을 확인하는 데 사용','파일 크기를 저장하는 데 사용','파일 생성 날짜를 기록하는 데 사용','파일 소유자 정보를 저장하는 데 사용'],answer:0,exp:'파일 시그니처(매직 넘버)는 파일 헤더에 위치하여 파일의 실제 형식(타입)을 판별하는 데 사용됩니다. 확장자 위조 여부도 탐지할 수 있습니다.'},
 {topic:'sig',type:'mc',q:'디지털 포렌식에서 파일 시그니처가 중요한 이유로 가장 적절한 것은?',choices:['확장자를 바꿔도 실제 파일 형식을 판별할 수 있다','파일 내용을 암호화할 수 있다','파일 전송 속도를 높일 수 있다','파일 소유자를 식별할 수 있다'],answer:0,exp:'파일 확장자는 변조가 쉽지만, 파일 시그니처는 파일 내부에 저장되므로 실제 형식을 정확히 판별할 수 있어 포렌식에서 중요합니다.'},
 {topic:'sig',type:'sa',q:'PNG 파일 시그니처의 첫 번째 바이트 값(16진수)을 쓰시오.',answers:['89','0x89'],exp:'PNG 시그니처 89 50 4E 47의 첫 번째 바이트는 89입니다.'},
-{topic:'sig',type:'sa',q:'PDF 파일 시그니처 25 50 44 46을 ASCII로 변환하면?',answers:['%PDF','%pdf'],exp:'25=%,  50=P, 44=D, 46=F이므로 %PDF입니다.'},
-{topic:'sig',type:'mc',q:'다음 중 파일 시그니처가 "FF D8"으로 시작하는 파일 형식은?',choices:['JPEG','PNG','PDF','MP4'],answer:0,exp:'FF D8로 시작하는 것은 JPEG 파일입니다. 뒤에 FF E0 또는 FF E1이 이어집니다.'},
+{topic:'sig',type:'sa',q:'PDF 파일 시그니처 25 50 44 46을 ASCII로 변환하면?',answers:['%PDF','%pdf'],exp:'25=%, 50=P, 44=D, 46=F이므로 %PDF입니다.'},
+{topic:'sig',type:'mc',q:'다음 중 파일 시그니처가 "FF D8"으로 시작하는 파일 형식은?',choices:['JPEG','PNG','PDF','MP4'],answer:0,exp:'FF D8으로 시작하는 것은 JPEG 파일입니다. 뒤에 FF E0 또는 FF E1이 이어집니다.'},
 {topic:'sig',type:'mc',q:'파일 시그니처는 파일의 어느 위치에 저장되는가?',choices:['파일 헤더(시작 부분)','파일 끝부분(EOF)','파일 중간부분','운영체제 레지스트리에 별도 저장'],answer:0,exp:'파일 시그니처(매직 넘버)는 파일의 맨 앞 헤더 부분에 저장됩니다. 이 때문에 확장자를 바꿔도 원본 형식을 탐지할 수 있습니다.'},
 {topic:'sig',type:'mc',q:'다음 중 파일 확장자와 시그니처가 올바르게 짝지어진 것은?',choices:['PNG — 89 50 4E 47','PDF — FF D8 FF E0','JPEG — 25 50 44 46','MP4 — 89 50 4E 47'],answer:0,exp:'PNG의 시그니처는 89 50 4E 47입니다. PDF는 25 50 44 46, JPEG는 FF D8 FF E0/E1입니다.'},
 {topic:'sig',type:'sa',q:'JPEG 파일 시그니처의 첫 두 바이트(16진수)를 쓰시오.',answers:['FF D8','ffd8'],exp:'JPEG 시그니처의 첫 두 바이트는 FF D8입니다. 이후 FF E0 또는 FF E1이 이어집니다.'},
@@ -279,7 +215,7 @@ const NORMAL_QUESTIONS = [
 {topic:'proc',type:'mc',q:'프로세스가 입출력 작업을 기다리는 상태는?',choices:['대기(Waiting)','준비(Ready)','실행(Running)','종료(Terminated)'],answer:0,exp:'대기(Waiting) 상태는 입출력 등 외부 이벤트를 기다리는 상태입니다. 작업이 완료되면 다시 준비 상태로 전환됩니다.'},
 {topic:'proc',type:'mc',q:'프로세스의 데이터 영역에 저장되는 것은?',choices:['전역 변수, 정적 변수','지역 변수, 리턴 주소','동적 할당 메모리','기계어 명령어'],answer:0,exp:'데이터 영역에는 전역 변수와 정적 변수가 저장됩니다. 지역 변수는 스택, 동적 할당은 힙에 저장됩니다.'},
 {topic:'proc',type:'mc',q:'프로그램과 프로세스의 차이로 올바른 것은?',choices:['프로그램은 저장된 파일, 프로세스는 실행 중인 상태','프로세스는 저장된 파일, 프로그램은 실행 중인 상태','둘은 완전히 동일한 개념이다','프로그램은 메모리에 올라간 상태이다'],answer:0,exp:'프로그램은 디스크에 저장된 파일(정적)이고, 프로세스는 프로그램이 메모리에 올라가 실행 중인 동적인 상태입니다.'},
-{topic:'proc',type:'sa',q:'프로세스 생명주기 5단계를 순서대로 쓰시오. (예: A→B→C→D→E)',answers:['생성→준비→실행→대기→종료','New→Ready→Running→Waiting→Terminated','생성→준비→실행→대기→종료'],exp:'생성(New)→준비(Ready)→실행(Running)→대기(Waiting)→종료(Terminated) 순서입니다.'},
+{topic:'proc',type:'sa',q:'프로세스 생명주기 5단계를 순서대로 쓰시오. (예: A→B→C→D→E)',answers:['생성→준비→실행→대기→종료','New→Ready→Running→Waiting→Terminated'],exp:'생성(New)→준비(Ready)→실행(Running)→대기(Waiting)→종료(Terminated) 순서입니다.'},
 // ── 3단원: TCP와 UDP ──
 {topic:'tcp',type:'mc',q:'TCP의 특징으로 올바른 것은?',choices:['연결 지향적이며 신뢰성 있는 전송을 보장한다','비연결 지향적이며 빠른 전송이 특징이다','헤더 크기가 8바이트로 작다','순서 보장이 없다'],answer:0,exp:'TCP는 연결 지향적(3-way handshake) 프로토콜로 재전송, 오류 검사, 순서 보장, 흐름/혼잡 제어를 제공하는 신뢰성 있는 프로토콜입니다.'},
 {topic:'tcp',type:'mc',q:'UDP의 헤더 크기는?',choices:['8바이트','20바이트','40바이트','60바이트'],answer:0,exp:'UDP 헤더 크기는 8바이트(출발지 포트, 목적지 포트, 길이, 체크섬 각 2바이트)입니다. TCP는 20~60바이트입니다.'},
@@ -299,7 +235,7 @@ const NORMAL_QUESTIONS = [
 {topic:'arp',type:'mc',q:'라우팅 테이블을 자동으로 학습·갱신하는 방법이 아닌 것은?',choices:['ARP 프로토콜 응답','OSPF 라우팅 프로토콜','BGP 라우팅 프로토콜','수동 설정(static route)'],answer:0,exp:'ARP 프로토콜은 ARP 테이블을 학습하는 데 사용됩니다. 라우팅 테이블은 OSPF, BGP 같은 라우팅 프로토콜이나 수동 설정으로 학습합니다.'},
 {topic:'arp',type:'sa',q:'ARP 테이블 항목의 예로 "192.168.0.10 → 00-1C-42-2B-60-5A"에서 "00-1C-42-2B-60-5A"는 무엇인가?',answers:['MAC 주소','mac 주소','Mac 주소'],exp:'00-1C-42-2B-60-5A는 MAC(Media Access Control) 주소로, 네트워크 인터페이스 카드에 부여된 고유한 물리적 주소입니다.'},
 {topic:'arp',type:'mc',q:'ARP 테이블과 라우팅 테이블의 차이로 옳은 것은?',choices:['ARP 테이블은 IP↔MAC 변환, 라우팅 테이블은 IP↔경로 정보 저장','ARP 테이블은 경로 정보, 라우팅 테이블은 MAC 주소 저장','둘 다 MAC 주소를 기반으로 동작','둘 다 3계층에서 동작'],answer:0,exp:'ARP 테이블은 IP↔MAC 주소 매핑(2계층), 라우팅 테이블은 목적지 IP↔다음 홉 경로(3계층)를 저장합니다.'},
-{topic:'arp',type:'mc',q:'ARP(Address Resolution Protocol)의 약자가 의미하는 것으로 올바른 것은?',choices:['주소 결정 프로토콜 — IP를 MAC으로 변환','고급 라우팅 프로토콜 — 경로를 계산','동적 주소 할당 프로토콜 — IP를 자동 부여','접근 제어 프로토콜 — 네트워크 접근 제어'],answer:0,exp:'ARP는 Address Resolution Protocol(주소 결정 프로토콜)로, IP 주소를 물리적 MAC 주소로 변환하는 역할을 합니다.'},
+{topic:'arp',type:'mc',q:'ARP가 하는 일로 올바른 것은?',choices:['IP 주소를 MAC 주소로 변환','경로를 계산하여 라우팅','IP 주소를 자동으로 부여','네트워크 접근을 제어'],answer:0,exp:'ARP는 IP 주소를 물리적 MAC 주소로 변환하는 역할을 합니다.'},
 {topic:'arp',type:'mc',q:'라우팅 테이블의 항목 "192.168.1.0/24 via 192.168.0.1"에서 "192.168.0.1"이 의미하는 것은?',choices:['다음 홉(next hop) — 패킷을 전달할 다음 라우터','목적지 네트워크 주소','브로드캐스트 주소','DNS 서버 주소'],answer:0,exp:'"via 192.168.0.1"은 목적지(192.168.1.0/24)로 가기 위해 다음으로 전달할 게이트웨이(next hop)의 IP 주소입니다.'},
 // ── 5단원: IP 패킷 헤더 ──
 {topic:'ip',type:'mc',q:'IP 패킷 헤더의 Version 필드(4비트)의 역할은?',choices:['IPv4인지 IPv6인지 프로토콜 버전을 구분','헤더의 길이를 나타냄','패킷 전체 크기를 나타냄','TTL 값을 저장'],answer:0,exp:'Version 필드(4비트)는 IP 프로토콜 버전을 나타냅니다. IPv4이면 4, IPv6이면 6이 저장됩니다.'},
@@ -323,288 +259,29 @@ const NORMAL_QUESTIONS = [
 {topic:'sec',type:'mc',q:'IDS가 설치되는 방식은?',choices:['미러링(Mirror) 방식 — 트래픽을 복사해 모니터링','인라인(Inline) 방식 — 실제 트래픽 흐름에 삽입','게이트웨이(Gateway) 방식 — 모든 트래픽을 경유','브리지(Bridge) 방식 — 네트워크를 분리'],answer:0,exp:'IDS는 트래픽을 복사(미러링)하여 모니터링하므로 네트워크 흐름에 영향을 주지 않습니다. IPS는 인라인 방식으로 설치됩니다.'},
 {topic:'sec',type:'mc',q:'ESM의 대표적인 시스템으로 옳은 것은?',choices:['SIEM (Splunk, QRadar, ArcSight 등)','방화벽 (Firewall)','IPS (Snort, Suricata 등)','UTM 장비'],answer:0,exp:'ESM은 SIEM(Security Information and Event Management)을 포함하며, Splunk·QRadar·ArcSight 등이 대표적인 SIEM 솔루션입니다.'},
 {topic:'sec',type:'mc',q:'다음 중 직접 공격 패킷을 차단할 수 없는 보안 장비는?',choices:['IDS','IPS','UTM','방화벽'],answer:0,exp:'IDS는 탐지 및 경고만 가능하고 직접 차단 기능이 없습니다. IPS, UTM, 방화벽은 모두 차단 기능을 가집니다.'},
-{topic:'sec',type:'sa',q:'IPS의 약어 풀네임을 쓰시오.',answers:['Intrusion Prevention System','intrusion prevention system'],exp:'IPS는 Intrusion Prevention System(침입 방지 시스템)의 약어입니다.'},
 {topic:'sec',type:'mc',q:'다음 중 UTM에 포함될 수 있는 기능을 모두 포함한 것은?',choices:['방화벽 + IPS + 안티바이러스 + VPN + 웹필터링','IDS + 라우팅 + DNS + DHCP','ESM + 방화벽 + IPS','SIEM + IDS + 안티바이러스'],answer:0,exp:'UTM(통합 보안 장비)은 방화벽, IPS, 안티바이러스, VPN, NAT, 웹 필터링 등 다양한 보안 기능을 하나로 통합합니다.'},
-{topic:'sec',type:'sa',q:'IDS의 약어 풀네임을 쓰시오.',answers:['Intrusion Detection System','intrusion detection system'],exp:'IDS는 Intrusion Detection System(침입 탐지 시스템)의 약어입니다.'},
 {topic:'sec',type:'mc',q:'IPS가 설치되는 방식은?',choices:['인라인(Inline) 방식 — 실제 트래픽 흐름에 삽입','미러링(Mirror) 방식 — 트래픽을 복사해 모니터링','게이트웨이(Gateway) 방식','패시브(Passive) 방식'],answer:0,exp:'IPS는 실제 트래픽 경로에 직접 삽입(인라인)되어 공격 패킷을 탐지 즉시 차단할 수 있습니다.'},
-{topic:'sec',type:'mc',q:'UTM의 약자 풀네임으로 올바른 것은?',choices:['Unified Threat Management','Universal Threat Monitor','Unified Traffic Management','Universal Traffic Monitor'],answer:0,exp:'UTM은 Unified Threat Management(통합 위협 관리)의 약자로, 여러 보안 기능을 하나의 장비에 통합한 솔루션입니다.'},
 {topic:'sec',type:'mc',q:'ESM과 IDS/IPS의 관계로 올바른 것은?',choices:['ESM은 IDS/IPS의 로그를 수집하여 통합 분석한다','ESM은 IDS/IPS 기능을 대체한다','IDS가 ESM의 로그를 분석한다','ESM은 직접 패킷을 차단하는 역할을 한다'],answer:0,exp:'ESM은 IDS, IPS 등 보안 장비들의 로그를 수집하고 통합적으로 분석합니다. 직접 차단하지 않고 관리·분석에 집중합니다.'},
 ];
 
-// ══ 하드 문제 (정적) ══
-const HARD_QUESTIONS_STATIC = [
-{topic:'sig',type:'mc_hard',fmt:'빈칸 채우기',
-q:'다음 파일 시그니처 표에서 빈칸 (A)에 들어갈 값으로 올바른 것은?',
-htmlContent:`<div class="hq-table-wrap"><table class="hq-table"><thead><tr><th>파일 형식</th><th>시그니처 (16진수)</th><th>ASCII</th></tr></thead><tbody>
-<tr><td>PNG</td><td>89 50 4E 47</td><td>‌.PNG</td></tr>
-<tr><td>JPEG</td><td><span class="hq-flow-blank">(A)</span></td><td>—</td></tr>
-<tr><td>PDF</td><td>25 50 44 46</td><td>%PDF</td></tr>
-</tbody></table></div>`,
-choices:['FF D8 FF E0','89 50 4E 47','25 50 44 46','66 74 79 70'],answer:0,
-exp:'JPEG 파일의 시그니처는 FF D8 FF E0 (또는 FF D8 FF E1)입니다.'},
-
-{topic:'proc',type:'mc_hard',fmt:'빈칸 채우기',
-q:'다음 프로세스 생명주기에서 빈칸 (A)에 들어갈 상태로 올바른 것은?',
-htmlContent:`<div class="hq-arrow-flow">
-<div class="hq-flow-box">생성(New)</div><div class="hq-flow-arrow">→</div>
-<div class="hq-flow-blank">(A)</div><div class="hq-flow-arrow">→</div>
-<div class="hq-flow-box">실행(Running)</div><div class="hq-flow-arrow">→</div>
-<div class="hq-flow-box">대기(Waiting)</div><div class="hq-flow-arrow">→</div>
-<div class="hq-flow-box">종료(Terminated)</div>
-</div>`,
-choices:['준비(Ready)','대기(Waiting)','종료(Terminated)','실행(Running)'],answer:0,
-exp:'생성 → 준비(Ready) → 실행 → 대기 → 종료 순서입니다. 준비 상태는 CPU 할당을 기다리는 단계입니다.'},
-
-{topic:'tcp',type:'mc_hard',fmt:'표 오류 찾기',
-q:'다음 TCP/UDP 비교표에서 옳지 않은 항목은?',
-htmlContent:`<div class="hq-table-wrap"><table class="hq-table"><thead><tr><th>특징</th><th>TCP</th><th>UDP</th></tr></thead><tbody>
-<tr><td>연결 방식</td><td>연결 지향적</td><td>비연결 지향적</td></tr>
-<tr><td>신뢰성</td><td>신뢰성 있음</td><td>신뢰성 없음</td></tr>
-<tr><td>헤더 크기</td><td>8바이트</td><td>20~60바이트</td></tr>
-<tr><td>순서 보장</td><td>있음</td><td>없음</td></tr>
-</tbody></table></div>`,
-choices:['헤더 크기 — TCP 8바이트, UDP 20~60바이트','연결 방식 — TCP 연결 지향적','신뢰성 — UDP 신뢰성 없음','순서 보장 — UDP 없음'],answer:0,
-exp:'헤더 크기가 반대로 기재되었습니다. TCP는 20~60바이트, UDP는 8바이트입니다.'},
-
-{topic:'arp',type:'mc_hard',fmt:'빈칸 채우기',
-q:'다음 ARP·라우팅 테이블 비교에서 빈칸 (A)에 들어갈 내용으로 옳은 것은?',
-htmlContent:`<div class="hq-table-wrap"><table class="hq-table"><thead><tr><th>구분</th><th>ARP 테이블</th><th>라우팅 테이블</th></tr></thead><tbody>
-<tr><td>역할</td><td>IP → MAC 주소 변환</td><td>목적지 IP → 경로 결정</td></tr>
-<tr><td>사용 계층</td><td><span class="hq-flow-blank">(A)</span></td><td>3계층 (네트워크)</td></tr>
-<tr><td>학습 방법</td><td>ARP 프로토콜 자동 응답</td><td>OSPF, BGP 등 라우팅 프로토콜</td></tr>
-</tbody></table></div>`,
-choices:['2계층 (데이터 링크 계층)','3계층 (네트워크 계층)','4계층 (전송 계층)','1계층 (물리 계층)'],answer:0,
-exp:'ARP는 MAC 주소를 사용하므로 2계층(데이터 링크 계층)에서 동작합니다.'},
-
-{topic:'ip',type:'mc_hard',fmt:'빈칸 채우기',
-q:'다음 IP 헤더 필드 설명에서 빈칸 (A)에 들어갈 내용으로 올바른 것은?',
-htmlContent:`<div class="hq-table-wrap"><table class="hq-table"><thead><tr><th>필드</th><th>크기</th><th>역할</th></tr></thead><tbody>
-<tr><td>Version</td><td>4비트</td><td>IPv4/IPv6 구분</td></tr>
-<tr><td>IHL</td><td>4비트</td><td>헤더 길이 (4바이트 단위)</td></tr>
-<tr><td>TTL</td><td>8비트</td><td><span class="hq-flow-blank">(A)</span></td></tr>
-<tr><td>Protocol</td><td>8비트</td><td>상위 프로토콜 지정 (TCP=6, UDP=17)</td></tr>
-</tbody></table></div>`,
-choices:['패킷이 무한히 떠돌지 않도록 라우터마다 1씩 감소','헤더 오류를 검출','단편화된 조각의 위치를 표시','패킷 전체 크기를 나타냄'],answer:0,
-exp:'TTL(Time to Live)은 라우터를 거칠 때마다 1씩 감소하며, 0이 되면 패킷을 폐기합니다.'},
-
-{topic:'sec',type:'mc_hard',fmt:'매칭',
-q:'다음 보안 장비와 설명이 올바르게 연결된 것은?',
-htmlContent:`<div class="hq-two-col">
-<div class="hq-col-card"><div class="hq-col-label">장비 목록</div>① IDS<br>② IPS<br>③ UTM<br>④ ESM</div>
-<div class="hq-col-card"><div class="hq-col-label">설명</div>A. 탐지만, 차단 불가<br>B. 탐지 + 자동 차단<br>C. 다기능 통합 보안<br>D. 로그 수집·분석</div>
-</div>`,
-choices:['①-A, ②-B, ③-C, ④-D','①-B, ②-A, ③-D, ④-C','①-A, ②-C, ③-B, ④-D','①-D, ②-C, ③-B, ④-A'],answer:0,
-exp:'IDS(탐지만), IPS(탐지+차단), UTM(통합 보안 장비), ESM(로그 통합 분석)입니다.'},
-
-{topic:'ip',type:'mc_hard',fmt:'계산 문제',
-q:'IP 헤더에서 IHL 값이 6일 때 IP 헤더의 실제 크기는?',
-htmlContent:`<div class="hq-box"><div class="hq-box-title">힌트</div>IHL 필드는 4비트이며, <strong>헤더 크기 = IHL × 4바이트</strong> 로 계산합니다.<br>기본값(옵션 없음)은 IHL = 5 → 20바이트입니다.</div>`,
-choices:['24바이트','6바이트','40바이트','20바이트'],answer:0,
-exp:'IHL=6이면 6×4=24바이트입니다. 옵션 필드가 4바이트 추가된 경우입니다.'},
-
-{topic:'tcp',type:'mc_hard',fmt:'시나리오',
-q:'다음 상황에서 가장 적합한 프로토콜과 그 이유로 올바른 것은?',
-htmlContent:`<div class="hq-box"><div class="hq-box-title">시나리오</div>온라인 게임에서 플레이어의 실시간 위치를 초당 60회 서버에 전송합니다. 일부 패킷이 손실되더라도 최신 위치만 중요하며, 지연이 최소화되어야 합니다.</div>`,
-choices:['UDP — 빠른 전송이 중요하고 일부 손실은 허용 가능','TCP — 신뢰성이 필요하므로 재전송 보장','TCP — 흐름 제어로 서버 부하를 줄일 수 있어서','UDP — 헤더가 크기 때문에 더 많은 데이터 전송 가능'],answer:0,
-exp:'실시간 게임 위치 데이터는 지연보다 속도가 중요하고, 오래된 위치는 의미가 없으므로 UDP가 적합합니다. TCP의 재전송은 오히려 지연을 유발합니다.'},
-
-{topic:'sig',type:'mc_hard',fmt:'오류 찾기',
-q:'다음 중 파일 시그니처에 대한 설명으로 옳지 않은 것은?',
-choices:['파일 시그니처는 파일의 끝부분(EOF)에 위치한다','확장자를 .txt로 바꿔도 시그니처로 원본 형식을 탐지할 수 있다','PNG 시그니처 89 50 4E 47에서 50 4E 47는 ASCII로 PNG를 의미한다','PDF 시그니처의 ASCII 표현은 %PDF이다'],answer:0,
-exp:'파일 시그니처(매직 넘버)는 파일의 끝이 아닌 헤더(시작 부분)에 위치합니다. 나머지 설명은 모두 올바릅니다.'},
-
-{topic:'proc',type:'mc_hard',fmt:'시나리오',
-q:'다음 상황에서 프로세스가 전환되는 상태 변화로 올바른 것은?',
-htmlContent:`<div class="hq-box"><div class="hq-box-title">시나리오</div>웹 브라우저가 파일을 다운로드하는 중 <strong>네트워크 입출력을 기다리고 있다.</strong> 이때 운영체제는 다른 프로세스에 CPU를 할당하기 위해 해당 프로세스의 상태를 변경한다.</div>`,
-choices:['실행(Running) → 대기(Waiting)','준비(Ready) → 실행(Running)','대기(Waiting) → 준비(Ready)','실행(Running) → 종료(Terminated)'],answer:0,
-exp:'입출력 대기가 필요할 때 프로세스는 실행(Running) → 대기(Waiting) 상태로 전환됩니다. 입출력 완료 후 대기 → 준비 상태로 돌아갑니다.'},
-];
-
-// ══ 익스퍼트 문제 (정적) ══
-const EXPERT_QUESTIONS_STATIC = [
-{topic:'sig',type:'mc_hard',fmt:'종합 추론',
-q:'수사관이 파일을 분석하던 중 확장자는 .mp3인데, 헥스 에디터로 확인한 첫 4바이트가 "89 50 4E 47"이었습니다. 이 파일에 대한 올바른 판단은?',
-choices:['확장자가 위조되었으며 실제 형식은 PNG 이미지 파일이다','MP3 파일의 시그니처가 여러 종류이므로 정상이다','시그니처 데이터가 손상되었으므로 파일이 깨진 것이다','MP3와 PNG의 혼합 파일 포맷이다'],answer:0,
-exp:'89 50 4E 47은 PNG 파일의 시그니처입니다. .mp3 확장자임에도 PNG 시그니처가 발견되었으므로, 확장자를 .mp3로 위조한 PNG 이미지 파일입니다. 포렌식에서는 항상 시그니처를 우선으로 판단합니다.'},
-
-{topic:'ip',type:'mc_hard',fmt:'복합 분석',
-q:'IP 패킷의 Flags 필드 값이 이진수로 "010"일 때, 이 패킷에 대한 올바른 해석은?',
-htmlContent:`<div class="hq-box"><div class="hq-box-title">Flags 필드 구조 (3비트)</div>
-비트 0 (MSB): RSV — 항상 0<br>
-비트 1: DF (Don't Fragment)<br>
-비트 2 (LSB): MF (More Fragments)</div>`,
-choices:['DF=1 이므로 단편화 금지. MTU 초과 시 전송 실패 처리됨','MF=1 이므로 뒤에 추가 조각이 존재함','RSV=0이므로 단편화가 허용된 패킷','DF=0, MF=1이므로 마지막 조각 패킷'],answer:0,
-exp:'"010"에서 비트1(DF)=1, 비트2(MF)=0입니다. DF=1은 조각화 금지를 의미하며, 패킷이 MTU를 초과하면 라우터가 전송을 실패시키고 ICMP 오류를 보냅니다.'},
-
-{topic:'tcp',type:'mc_hard',fmt:'복합 비교',
-q:'다음 시나리오별로 TCP/UDP 선택이 모두 올바른 것은?',
-htmlContent:`<div class="hq-table-wrap"><table class="hq-table"><thead><tr><th>시나리오</th><th>선택 프로토콜</th></tr></thead><tbody>
-<tr><td>① 온라인 뱅킹 송금</td><td>TCP</td></tr>
-<tr><td>② 실시간 화상회의</td><td>UDP</td></tr>
-<tr><td>③ 파일 FTP 전송</td><td>UDP</td></tr>
-<tr><td>④ DNS 조회</td><td>UDP</td></tr>
-</tbody></table></div>`,
-choices:['①②④만 올바르고, ③은 잘못되었다 (FTP는 TCP)','모두 올바르다','①③만 올바르다','②④만 올바르다'],answer:0,
-exp:'FTP는 파일 무결성이 중요하므로 TCP를 사용합니다. 뱅킹(신뢰성→TCP), 화상회의(속도→UDP), DNS(빠른 조회→UDP)는 올바릅니다.'},
-
-{topic:'proc',type:'mc_hard',fmt:'심화 분석',
-q:'프로세스 A가 malloc()으로 메모리를 동적 할당하고, 함수 foo()를 호출했습니다. 이때 각 데이터가 저장되는 영역으로 올바른 것은?',
-htmlContent:`<div class="hq-two-col">
-<div class="hq-col-card"><div class="hq-col-label">코드</div><code style="font-size:0.8rem">int g = 10;  // 전역변수<br>void foo() {<br>  int x = 5; // 지역변수<br>}<br>int* p = malloc(100);</code></div>
-<div class="hq-col-card"><div class="hq-col-label">선택지</div>g → ?, x → ?, *p → ?</div>
-</div>`,
-choices:['g → 데이터 영역, x → 스택, *p → 힙','g → 힙, x → 데이터 영역, *p → 스택','g → 스택, x → 힙, *p → 데이터 영역','g → 코드 영역, x → 힙, *p → 스택'],answer:0,
-exp:'전역변수(g)는 데이터 영역, 지역변수(x)는 스택, malloc으로 동적 할당된 메모리(*p)는 힙 영역에 저장됩니다.'},
-
-{topic:'sec',type:'mc_hard',fmt:'시나리오 판단',
-q:'기업 보안팀이 네트워크를 구축할 때, 다음 요구사항을 모두 만족하는 최적의 구성은?',
-htmlContent:`<div class="hq-box"><div class="hq-box-title">요구사항</div>
-① 외부 인터넷에서 내부망으로의 침입을 <strong>자동으로 차단</strong>해야 한다.<br>
-② 내부 보안 장비들의 <strong>로그를 한 곳에서 통합 분석</strong>해야 한다.<br>
-③ 소규모 기업이라 <strong>하나의 장비로 여러 보안 기능</strong>을 수행해야 한다.</div>`,
-choices:['① UTM(또는 IPS), ② ESM, ③ UTM','① IDS, ② ESM, ③ IPS','① UTM, ② IDS, ③ ESM','① IPS, ② UTM, ③ ESM'],answer:0,
-exp:'자동 차단은 IPS 또는 UTM, 로그 통합 분석은 ESM(SIEM), 소규모 통합 보안은 UTM이 적합합니다. ①②③의 요구사항에 가장 부합하는 조합입니다.'},
-
-{topic:'arp',type:'mc_hard',fmt:'패킷 흐름 추적',
-q:'PC(192.168.0.5)가 외부 서버(8.8.8.8)에 데이터를 보낼 때, 패킷 전송 흐름에서 사용되는 테이블의 순서로 올바른 것은?',
-htmlContent:`<div class="hq-arrow-flow">
-<div class="hq-flow-box">PC가 8.8.8.8로<br>패킷 전송 시작</div>
-<div class="hq-flow-arrow">→</div>
-<div class="hq-flow-blank-expert">(?)</div>
-<div class="hq-flow-arrow">→</div>
-<div class="hq-flow-box">게이트웨이<br>MAC 주소 확인</div>
-<div class="hq-flow-arrow">→</div>
-<div class="hq-flow-blank-expert">(?)</div>
-<div class="hq-flow-arrow">→</div>
-<div class="hq-flow-box">패킷 전송</div>
-</div>`,
-choices:['라우팅 테이블 → ARP 테이블 순으로 조회','ARP 테이블 → 라우팅 테이블 순으로 조회','라우팅 테이블만 사용','ARP 테이블만 사용'],answer:0,
-exp:'먼저 라우팅 테이블로 목적지(8.8.8.8)에 대한 다음 홉(게이트웨이)을 찾고, 그 다음 ARP 테이블로 게이트웨이의 MAC 주소를 확인해 프레임을 만들어 전송합니다.'},
-
-{topic:'ip',type:'mc_hard',fmt:'헤더 분석',
-q:'다음 IP 헤더 덤프에서 TTL 필드를 올바르게 해석한 것은?',
-htmlContent:`<div class="hq-box"><div class="hq-box-title">IP 헤더 (16진수 덤프, 일부)</div>
-<span class="hex-tag">45</span> <span class="hex-tag">00</span> <span class="hex-tag">00 3C</span> <span class="hex-tag">1A 2B</span> <span class="hex-tag">40 00</span> <span class="hex-tag" style="background:rgba(240,180,41,0.2);border-color:rgba(240,180,41,0.5);color:var(--expert)">40</span> <span class="hex-tag">06</span> ...<br><br>
-<small style="color:var(--text-muted)">위치: Version/IHL | TOS | Total Length | ID | Flags/Offset | <strong>TTL</strong> | Protocol | ...</small></div>`,
-choices:['TTL = 64 (0x40). 라우터 64개를 통과할 수 있으며 현재 출발점에 가까운 상태','TTL = 64 이면 이미 64번 라우터를 거쳐 폐기 직전','TTL은 밀리초 단위이므로 64ms 후 폐기','TTL 필드는 Protocol 다음에 위치한다'],answer:0,
-exp:'0x40 = 64(10진수). TTL=64는 Linux/macOS의 기본값으로, 라우터를 거칠 때마다 1 감소합니다. 아직 64개의 홉을 더 통과할 수 있는 패킷입니다.'},
-
-{topic:'sig',type:'mc_hard',fmt:'종합 추론',
-q:'디지털 포렌식 수사에서 파일 시그니처 분석만으로 한계가 있는 경우는?',
-choices:['파일 내용 자체가 암호화된 경우 시그니처는 정상이지만 내용을 알 수 없다','확장자를 바꾼 파일을 탐지할 수 없다','파일이 삭제된 경우 시그니처를 볼 수 없다','모든 파일 형식에 고유한 시그니처가 존재한다'],answer:0,
-exp:'파일 시그니처는 파일 헤더만 확인하므로, 파일 내용이 암호화되어 있으면 형식은 정상으로 보여도 실제 내용을 분석할 수 없습니다. 삭제 파일도 카빙(Carving) 기법으로 시그니처 탐지가 가능합니다.'},
-
-{topic:'sec',type:'mc_hard',fmt:'복합 추론',
-q:'보안 관리자가 다음 상황을 발견했습니다. 가장 먼저 확인해야 할 보안 장비와 이유로 올바른 것은?',
-htmlContent:`<div class="hq-box"><div class="hq-box-title">상황</div>IPS가 특정 IP에서 반복적인 포트 스캔 공격을 탐지했으나 <strong>차단하지 않았다.</strong> 동시에 내부 서버에서 비정상적인 트래픽이 확인되었다.</div>`,
-choices:['IPS 설정 — 차단 정책(룰)이 올바르게 구성되었는지 확인','ESM — 로그 통합 분석으로 공격 전체 흐름 파악 먼저','IDS — IPS보다 탐지 정확도가 높으므로 IDS 로그 우선 확인','UTM — 통합 장비이므로 모든 기능을 한번에 점검'],answer:0,
-exp:'IPS가 탐지했음에도 차단하지 않았다면, IPS의 차단 정책(룰)이 비활성화되었거나 잘못 설정된 것입니다. 먼저 IPS 설정과 차단 정책을 확인해야 합니다.'},
-
-{topic:'proc',type:'mc_hard',fmt:'심화 추론',
-q:'운영체제가 여러 프로세스를 동시에 실행하는 것처럼 보이게 하는 방식과 이때 PCB가 하는 역할로 올바른 것은?',
-choices:['컨텍스트 스위칭으로 빠르게 전환하며, PCB는 전환 시 레지스터·상태 정보를 저장/복원','각 프로세스에 별도 CPU를 할당하며, PCB는 CPU 번호를 저장','프로세스를 작은 단위로 나눠 동시 실행하며, PCB는 분할 정보를 저장','힙 메모리를 공유하여 동시 실행하며, PCB는 힙 주소를 관리'],answer:0,
-exp:'운영체제는 컨텍스트 스위칭(Context Switching)으로 프로세스 간 CPU를 빠르게 교체합니다. PCB는 전환 시 현재 프로세스의 레지스터 값, 프로그램 카운터 등을 저장하고, 이후 복원하는 역할을 합니다.'},
-];
-
-// ══ 동적 문제 생성 ══
-function makeDynSigErrorQ(){
-  const SIGS=[
-    {ext:'PNG',correct:'89 50 4E 47',wrong:'89 50 4E 46',note:'PNG 시그니처는 89 50 4E 47입니다. 마지막 바이트는 47(G)이며 46이 아닙니다.'},
-    {ext:'JPEG',correct:'FF D8 FF E0',wrong:'FF D8 FF E2',note:'JPEG 시그니처는 FF D8 FF E0 또는 FF D8 FF E1입니다. FF E2는 유효하지 않습니다.'},
-    {ext:'PDF',correct:'25 50 44 46',wrong:'25 50 44 47',note:'PDF 시그니처는 25 50 44 46(%PDF)입니다. 마지막 바이트는 46(F)입니다.'},
-    {ext:'MP4',correct:'33 67 70 35',wrong:'66 74 79 70',note:'MP4 시그니처는 33 67 70 35입니다. 66 74 79 70은 다른 MP4 변형 시그니처입니다.'},
-  ];
-  const SPEAKERS=['민준','서연','지호','하은'];
-  const wrongIdx=Math.floor(Math.random()*SIGS.length);
-  const lines=SIGS.map((s,i)=>{
-    const isWrong=(i===wrongIdx);
-    return `<strong>${SPEAKERS[i]}:</strong> "${s.ext} 파일의 시그니처는 <span style="font-family:monospace;color:#79c0ff">${isWrong?s.wrong:s.correct}</span>야."`;
-  }).join('<br><br>');
-  const wrongName=SPEAKERS[wrongIdx];
-  const note=SIGS[wrongIdx].note;
-  return{
-    topic:'sig',type:'mc_hard',fmt:'대화 오류 찾기',
-    q:'다음 대화에서 파일 시그니처를 잘못 말한 학생은?',
-    htmlContent:`<div class="hq-box"><strong>주제: 파일 시그니처</strong><br><br>${lines}</div>`,
-    choices:SPEAKERS,answer:wrongIdx,noShuffle:true,
-    exp:`${wrongName}이(가) 틀렸습니다. ${note}`
-  };
-}
-
-function makeDynIPFlagQ(){
-  const FLAGS=[
-    {bit:'0번 비트',name:'RSV (Reserved)',correct:'사용되지 않음 (항상 0)',wrong:'조각화 금지. 1이면 단편화 불가, MTU 초과 시 전송 실패',note:'0번 비트(RSV)는 예약 비트로 항상 0입니다. 조각화 금지는 1번 비트(DF)입니다.'},
-    {bit:'1번 비트',name:"DF (Don't Fragment)",correct:'조각화 금지. 1이면 단편화 불가, MTU 초과 시 전송 실패',wrong:'추가 단편이 뒤따름을 표시. 마지막 단편은 0',note:'1번 비트(DF)는 조각화 금지 플래그입니다. 추가 단편 표시는 2번 비트(MF)입니다.'},
-    {bit:'2번 비트',name:'MF (More Fragments)',correct:'더 많은 조각이 뒤따름. 마지막 조각은 0으로 설정',wrong:'사용되지 않음 (항상 0)',note:'2번 비트(MF)는 추가 단편 존재 여부를 표시합니다. 마지막 단편에서는 0입니다.'},
-  ];
-  const wrongIdx=Math.floor(Math.random()*FLAGS.length);
-  const rows=FLAGS.map((f,i)=>{
-    const isWrong=(i===wrongIdx);
-    return `<tr><td>${f.bit}</td><td>${f.name}</td><td>${isWrong?f.wrong:f.correct}</td></tr>`;
-  }).join('');
-  return{
-    topic:'ip',type:'mc_hard',fmt:'표 오류 찾기',
-    q:'다음 IP 패킷 헤더 Flags 필드 설명에서 옳지 않은 항목은?',
-    htmlContent:`<div class="hq-table-wrap"><table class="hq-table"><thead><tr><th>비트 위치</th><th>이름</th><th>설명</th></tr></thead><tbody>${rows}</tbody></table></div>`,
-    choices:FLAGS.map(f=>f.bit),answer:wrongIdx,noShuffle:true,
-    exp:`${FLAGS[wrongIdx].bit}(${FLAGS[wrongIdx].name})의 설명이 틀렸습니다. ${FLAGS[wrongIdx].note}`
-  };
-}
-
-function getHardQuestions(){return shuffle([...HARD_QUESTIONS_STATIC,makeDynSigErrorQ(),makeDynIPFlagQ()]);}
-function getExpertQuestions(){return shuffle([...EXPERT_QUESTIONS_STATIC]);}
-
-// ══ 상태 ══
-let selectedQuestions=[],currentIdx=0,score=0,answered=false,currentMode='normal';
-let selectedTopic='all';  // ✅ 버그 수정: 변수 초기화
+let selectedQuestions=[],currentIdx=0,score=0,answered=false,selectedTopic='all';
 
 function selectTopic(topic){
   selectedTopic=topic;
-  document.querySelectorAll('.topic-btn').forEach(btn=>btn.classList.remove('selected-topic'));
-  const target=document.getElementById('btn-topic-'+topic);
-  if(target)target.classList.add('selected-topic');
+  document.querySelectorAll('.topic-btn').forEach(b=>b.classList.remove('selected-topic'));
+  const t=document.getElementById('btn-topic-'+topic);
+  if(t)t.classList.add('selected-topic');
   updateQuestionCount();
 }
 
 function updateQuestionCount(){
-  let pool;
-  if(currentMode==='normal')pool=[...NORMAL_QUESTIONS];
-  else if(currentMode==='hard')pool=[...HARD_QUESTIONS_STATIC,{},{} /* dyn */];
-  else pool=[...EXPERT_QUESTIONS_STATIC];
-  if(selectedTopic!=='all'){
-    pool=pool.filter(q=>q.topic===selectedTopic);
-  }
-  // 하드 동적 2개 보정
-  let count=pool.length;
-  if(currentMode==='hard'){
-    count=HARD_QUESTIONS_STATIC.filter(q=>selectedTopic==='all'||q.topic===selectedTopic).length;
-    if(selectedTopic==='all'||selectedTopic==='sig'||selectedTopic==='ip') count+=selectedTopic==='all'?2:(selectedTopic==='sig'||selectedTopic==='ip'?1:0);
-  }
-  document.getElementById('info-qcount').textContent=Math.min(count,20);
+  let pool=selectedTopic==='all'?[...QUESTIONS]:QUESTIONS.filter(q=>q.topic===selectedTopic);
+  document.getElementById('info-qcount').textContent=Math.min(pool.length,20);
 }
 
-function selectDiff(mode){
-  currentMode=mode;
-  ['normal','hard','expert'].forEach(m=>{
-    const el=document.getElementById('btn-diff-'+m);
-    if(el)el.className='diff-btn'+(m===mode?' selected-'+m:'');
-  });
-  const btn=document.getElementById('btn-start-main');
-  const labels={normal:'🚀 문제 시작하기 →',hard:'🔥 하드 시작하기 →',expert:'⚡ 익스퍼트 시작하기 →'};
-  const cls={normal:'btn-start',hard:'btn-start hard-mode',expert:'btn-start expert-mode'};
-  btn.textContent=labels[mode];btn.className=cls[mode];updateQuestionCount();
-}
-
-function startQuiz(forcedMode){
-  if(forcedMode)selectDiff(forcedMode);
-  let pool;
-  if(currentMode==='normal')pool=[...NORMAL_QUESTIONS];
-  else if(currentMode==='hard')pool=getHardQuestions();
-  else pool=getExpertQuestions();
-  if(selectedTopic!=='all'){
-    pool=pool.filter(q=>q.topic===selectedTopic);
-  }
-  if(pool.length===0){alert('선택한 단원에 해당 난이도 문제가 없습니다. 단원이나 난이도를 변경해 주세요.');return;}
+function startQuiz(){
+  let pool=selectedTopic==='all'?[...QUESTIONS]:QUESTIONS.filter(q=>q.topic===selectedTopic);
+  if(!pool.length){alert('선택한 단원에 문제가 없습니다.');return;}
   pool=shuffle(pool).slice(0,20);
   selectedQuestions=pool;currentIdx=0;score=0;
   document.getElementById('start-screen').style.display='none';
@@ -612,9 +289,6 @@ function startQuiz(forcedMode){
   document.getElementById('quiz-screen').style.display='block';
   document.getElementById('live-score').textContent=0;
   document.getElementById('total-q').textContent=pool.length;
-  const fill=document.getElementById('progress-fill');
-  fill.className='progress-bar-fill'+(currentMode==='hard'?' hard-fill':currentMode==='expert'?' expert-fill':'');
-  document.getElementById('quiz-screen').className=currentMode==='hard'?'hard-mode-active':currentMode==='expert'?'expert-mode-active':'';
   renderQuestion();
 }
 
@@ -627,28 +301,16 @@ function renderQuestion(){
   document.getElementById('progress-fill').style.width=((currentIdx+1)/total*100)+'%';
   document.getElementById('explanation').style.display='none';
   document.getElementById('btn-next').style.display='none';
-  const qCard=document.getElementById('q-card');
-  const qType=document.getElementById('q-type');
-  const qText=document.getElementById('q-text');
-  const qHtml=document.getElementById('q-html-content');
-  const btnNext=document.getElementById('btn-next');
-  qCard.className='question-card'+(currentMode==='hard'?' hard-card':currentMode==='expert'?' expert-card':'');
-  btnNext.className='btn-next'+(currentMode==='hard'?' hard-next':currentMode==='expert'?' expert-next':'');
-  if(q.type==='mc')qType.innerHTML='✏️ 객관식';
-  else if(q.type==='sa')qType.innerHTML='📝 단답형';
-  else if(currentMode==='expert')qType.innerHTML=`⚡ <span class="expert-badge-inline">EXPERT</span> &nbsp;<span class="fmt-tag">${q.fmt}</span>`;
-  else qType.innerHTML=`🔥 <span class="hard-badge-inline">HARD</span> &nbsp;<span class="fmt-tag">${q.fmt}</span>`;
-  qText.textContent=q.q;
-  qHtml.innerHTML=q.htmlContent||'';
+  document.getElementById('q-type').innerHTML=q.type==='mc'?'✏️ 객관식':'📝 단답형';
+  document.getElementById('q-text').textContent=q.q;
   const area=document.getElementById('choices-area');
   area.innerHTML='';
-  if(q.type==='mc'||q.type==='mc_hard'){
-    const{shuffledChoices,newAnswerIdx}=pickMC(q.choices,q.answer,q.noShuffle||false);
-    const labels=shuffledChoices.length>=5?LABELS5:LABELS4;
+  if(q.type==='mc'){
+    const{shuffledChoices,newAnswerIdx}=pickMC(q.choices,q.answer);
     const div=document.createElement('div');div.className='choices';
-    shuffledChoices.forEach((choiceText,i)=>{
+    shuffledChoices.forEach((txt,i)=>{
       const btn=document.createElement('button');btn.className='choice-btn';
-      btn.innerHTML=`<span class="choice-num">${labels[i]}</span><span>${choiceText}</span>`;
+      btn.innerHTML=`<span class="choice-num">${LABELS[i]}</span><span>${txt}</span>`;
       btn.onclick=()=>handleMC(i,btn,div,newAnswerIdx,q);
       div.appendChild(btn);
     });
@@ -657,11 +319,11 @@ function renderQuestion(){
     const wrap=document.createElement('div');wrap.className='short-answer-wrap';
     const row=document.createElement('div');row.className='short-input-row';
     const inp=document.createElement('input');inp.className='short-input';inp.type='text';inp.placeholder='정답을 입력하세요';
-    const submitBtn=document.createElement('button');submitBtn.className='btn-submit';submitBtn.textContent='제출';
+    const sub=document.createElement('button');sub.className='btn-submit';sub.textContent='제출';
     const hint=document.createElement('div');hint.className='sa-hint';
-    const doSubmit=()=>submitSA(inp,submitBtn,hint,q);
-    inp.onkeydown=e=>{if(e.key==='Enter')doSubmit();};submitBtn.onclick=doSubmit;
-    row.appendChild(inp);row.appendChild(submitBtn);wrap.appendChild(row);wrap.appendChild(hint);area.appendChild(wrap);
+    const go=()=>submitSA(inp,sub,hint,q);
+    inp.onkeydown=e=>{if(e.key==='Enter')go();};sub.onclick=go;
+    row.appendChild(inp);row.appendChild(sub);wrap.appendChild(row);wrap.appendChild(hint);area.appendChild(wrap);
     setTimeout(()=>inp.focus(),100);
   }
 }
@@ -669,29 +331,28 @@ function renderQuestion(){
 function handleMC(idx,btn,div,correctIdx,q){
   if(answered)return;answered=true;
   const btns=div.querySelectorAll('.choice-btn');btns.forEach(b=>b.disabled=true);
-  const isCorrect=idx===correctIdx;
   btns[correctIdx].classList.add('correct');
-  if(!isCorrect)btn.classList.add('wrong');
-  if(isCorrect)score++;
+  if(idx!==correctIdx)btn.classList.add('wrong');
+  else score++;
   document.getElementById('live-score').textContent=score;
   showExp(q.exp);
 }
 
-function submitSA(inp,submitBtn,hint,q){
+function submitSA(inp,sub,hint,q){
   if(answered)return;const val=inp.value.trim();if(!val)return;
-  answered=true;inp.disabled=true;submitBtn.disabled=true;
-  const isCorrect=checkSA(val,q.answers);
-  if(isCorrect){inp.classList.add('correct');hint.className='sa-hint correct-hint';hint.textContent='✅ 정답입니다!';score++;}
-  else{inp.classList.add('wrong');hint.className='sa-hint wrong-hint';hint.textContent=`❌ 오답 — 정답: ${q.answers[0]}`;}
-  document.getElementById('live-score').textContent=score;showExp(q.exp);
+  answered=true;inp.disabled=true;sub.disabled=true;
+  if(checkSA(val,q.answers)){inp.classList.add('correct');hint.className='sa-hint correct-hint';hint.textContent='✅ 정답입니다!';score++;}
+  else{inp.classList.add('wrong');hint.className='sa-hint wrong-hint';hint.textContent='❌ 오답 — 정답: '+q.answers[0];}
+  document.getElementById('live-score').textContent=score;
+  showExp(q.exp);
 }
 
 function showExp(text){
-  const el=document.getElementById('explanation');
-  document.getElementById('exp-text').textContent=text;el.style.display='block';
-  const nextBtn=document.getElementById('btn-next');nextBtn.style.display='block';
-  nextBtn.textContent=currentIdx<selectedQuestions.length-1?'다음 문제 →':'결과 보기 🏁';
-  nextBtn.scrollIntoView({behavior:'smooth',block:'nearest'});
+  document.getElementById('exp-text').textContent=text;
+  document.getElementById('explanation').style.display='block';
+  const nb=document.getElementById('btn-next');nb.style.display='block';
+  nb.textContent=currentIdx<selectedQuestions.length-1?'다음 문제 →':'결과 보기 🏁';
+  nb.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 function nextQuestion(){
@@ -703,45 +364,33 @@ function nextQuestion(){
 function showResult(){
   document.getElementById('quiz-screen').style.display='none';
   const rs=document.getElementById('result-screen');rs.style.display='flex';
-  const total=selectedQuestions.length;const pct=Math.round(score/total*100);
+  const total=selectedQuestions.length,pct=Math.round(score/total*100);
   document.getElementById('result-score-num').textContent=score;
-  document.getElementById('result-total-label').textContent=` / ${total}`;
-  const sn=document.getElementById('result-score-num');
-  sn.className='score-num'+(currentMode==='hard'?' hard-score':currentMode==='expert'?' expert-score':'');
+  document.getElementById('result-total-label').textContent=' / '+total;
   document.getElementById('cnt-correct').textContent=score;
   document.getElementById('cnt-wrong').textContent=total-score;
-  const db=document.getElementById('result-diff-badge');
-  const labels={normal:'📖 노말 모드',hard:'🔥 하드 모드',expert:'⚡ 익스퍼트 모드'};
-  db.className='result-diff-badge '+currentMode;db.textContent=labels[currentMode];
-  // ✅ 버그 수정: 재시작 버튼 스타일
-  const rb=document.getElementById('btn-restart');
-  rb.className='btn-r '+(currentMode==='hard'?'hard-btn':currentMode==='expert'?'expert-btn':'normal');
   setTimeout(()=>{
     document.getElementById('bar-correct').style.width=(score/total*100)+'%';
     document.getElementById('bar-wrong').style.width=((total-score)/total*100)+'%';
   },200);
-  let emoji,title,detail;
-  if(pct>=90){emoji='🏆';title='완벽해요!';detail=`${total}문제 중 ${score}문제 정답 (${pct}%)\n디지털 포렌식 & 네트워크 완전 정복!`;}
-  else if(pct>=70){emoji='😊';title='잘했어요!';detail=`${total}문제 중 ${score}문제 정답 (${pct}%)\n조금만 더 보강하면 만점!`;}
-  else if(pct>=50){emoji='📖';title='더 공부해요!';detail=`${total}문제 중 ${score}문제 정답 (${pct}%)\n오답 노트를 꼭 만들어보세요.`;}
-  else{emoji='💪';title='다시 도전!';detail=`${total}문제 중 ${score}문제 정답 (${pct}%)\n핵심 개념을 다시 복습해요.`;}
+  const msgs=[
+    [90,'🏆','완벽해요!','디지털 포렌식 & 네트워크 완전 정복!'],
+    [70,'😊','잘했어요!','조금만 더 보강하면 만점!'],
+    [50,'📖','더 공부해요!','오답 노트를 꼭 만들어보세요.'],
+    [0,'💪','다시 도전!','핵심 개념을 다시 복습해요.']
+  ];
+  const[,emoji,title,sub]=msgs.find(([t])=>pct>=t);
   document.getElementById('result-emoji').textContent=emoji;
   document.getElementById('result-title').textContent=title;
-  document.getElementById('result-detail').textContent=detail;
+  document.getElementById('result-detail').textContent=total+'문제 중 '+score+'문제 정답 ('+pct+'%)\n'+sub;
 }
 
-// ✅ 버그 수정: restartSameTopic 함수 정상화
-function restartSameTopic(){
-  startQuiz();
-}
-
+function restartSameTopic(){startQuiz();}
 function goHome(){
   document.getElementById('result-screen').style.display='none';
   document.getElementById('start-screen').style.display='flex';
 }
 
-// 초기화
-selectDiff('normal');
 updateQuestionCount();
 </script>
 </body>
